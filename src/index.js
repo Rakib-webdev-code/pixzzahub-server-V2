@@ -45,13 +45,7 @@ app.use('/api', rateLimit({ windowMs: 60 * 1000, max: 200 }));
 app.get('/', (_req, res) => res.json({ ok: true, service: 'pizzahub-api' }));
 app.get('/api/health', (_req, res) => res.json({ ok: true, service: 'pizzahub-api' }));
 
-app.use('/api/auth', authRoutes);
-app.use('/api/users', usersRoutes);
-app.use('/api/menuItems', menuItemsRoutes);
-app.use('/api/orders', ordersRoutes);
-app.use('/api/transactions', transactionsRoutes);
-app.use('/api/stripe', stripeRoutes);
-app.use('/api/upload', uploadRoutes);
+
 
 app.use((_req, res) => res.status(404).json({ message: 'Route not found' }));
 app.use(errorHandler);
